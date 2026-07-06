@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BYD Charge Queue</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero-card">
+        <div>
+          <p class="eyebrow">Gestão inteligente</p>
+          <h1>Fila de carregamento para carros elétricos</h1>
+          <p class="hero-text">
+            Organize a chegada, o carregamento e a saída dos veículos com rapidez.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <button class="primary-btn" id="addCarBtn">Adicionar carro</button>
+          <button class="secondary-btn" id="simulateBtn">Simular chegada</button>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="stats-grid" aria-label="Resumo da fila">
+          <article class="stat-card">
+            <span class="stat-label">Na fila</span>
+            <strong id="waitingCount">0</strong>
+          </article>
+          <article class="stat-card">
+            <span class="stat-label">Carregando</span>
+            <strong id="chargingCount">0</strong>
+          </article>
+          <article class="stat-card">
+            <span class="stat-label">Concluídos hoje</span>
+            <strong id="completedCount">0</strong>
+          </article>
+          <article class="stat-card">
+            <span class="stat-label">Tempo médio</span>
+            <strong id="avgTime">0 min</strong>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <article class="panel">
+            <div class="panel-header">
+              <h2>Fila atual</h2>
+              <button class="ghost-btn" id="startNextBtn">Iniciar próximo</button>
+            </div>
+            <div id="queueList" class="queue-list"></div>
+          </article>
+
+          <aside class="panel side-panel">
+            <div class="panel-header">
+              <h2>Resumo do posto</h2>
+            </div>
+            <div class="info-card">
+              <p class="info-label">Posto</p>
+              <h3>BYD Fast Charge 01</h3>
+              <p>4 tomadas disponíveis</p>
+            </div>
+            <div class="info-card">
+              <p class="info-label">Próximo veículo</p>
+              <h3 id="nextVehicle">Nenhum</h3>
+              <p id="nextVehicleDetail">Aguardando chegada</p>
+            </div>
+            <div class="info-card">
+              <p class="info-label">Ações rápidas</p>
+              <button class="primary-btn full-width" id="finishCurrentBtn">Finalizar carregamento</button>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="addCarModal">
+      <form id="carForm" class="modal-form">
+        <h3>Registrar novo veículo</h3>
+        <label>
+          Placa
+          <input type="text" id="plate" name="plate" required />
+        </label>
+        <label>
+          Modelo
+          <input type="text" id="model" name="model" required />
+        </label>
+        <label>
+          Bateria atual (%)
+          <input type="number" id="battery" name="battery" min="5" max="95" required />
+        </label>
+        <label>
+          Tempo estimado (min)
+          <input type="number" id="chargeTime" name="chargeTime" min="10" max="180" required />
+        </label>
+        <div class="modal-actions">
+          <button type="button" class="secondary-btn" id="closeModalBtn">Cancelar</button>
+          <button type="submit" class="primary-btn">Salvar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
