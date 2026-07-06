@@ -1,7 +1,7 @@
 # Zap-Fila-
 Fila de carregamento para carros elétricos
 
-# ⚡ EV Charge Queue — Gerenciamento de Carregamento de Veículos Elétricos
+# ⚡ Zap fila — Gerenciamento de Carregamento de Veículos Elétricos
 
 Sistema de gestão de fila, agendamento e carregamento de veículos elétricos, pensado para dois cenários de uso: **condomínios** (com aviso à portaria) e **postos públicos/comerciais**.
 
